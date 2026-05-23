@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #f5fbff; /* Biru sangat muda mendekati putih */
+    background-image: radial-gradient(#d4eaff 1px, transparent 1px); /* Pola titik-titik lucu */
+    background-size: 20px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+    padding: 20px; /* Ditambahkan agar di mobile tidak nempel dengan ujung layar */
+}
+
+.container {
+    background-color: #ffffff; /* Dominan putih sesuai permintaan */
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(135, 206, 250, 0.2);
+    text-align: center;
+    max-width: 420px;
+    width: 100%;
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 3px solid #e0f0ff; /* Aksen biru muda */
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+h1 {
+    font-size: 1.5rem;
+    color: #4a90e2; /* Aksen Biru */
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.cute-gif {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+}
+
+button {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    -webkit-tap-highlight-color: transparent; /* Hilangkan efek tap biru bawaan hp */
+}
+
+.buttons button {
+    flex: 1; /* Supaya tombol Yes dan No seimbang besarnya */
+    max-width: 160px;
+}
+
+#yes-btn, #back-btn {
+    background-color: #4a90e2; /* Biru */
+    color: #ffffff; /* Putih */
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+}
+
+#yes-btn:hover, #back-btn:hover {
+    background-color: #357abd;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4);
+}
+
+#no-btn {
+    background-color: #ffffff; /* Putih */
+    color: #4a90e2; /* Biru */
+    border: 2px solid #4a90e2;
+}
+
+#no-btn:hover {
+    background-color: #f0f8ff;
+    transform: translateY(-3px);
+}
+
+/* Tombol Putar Musik */
+.music-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ffffff;
+    color: #4a90e2;
+    border: 2px solid #e0f0ff;
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 10px rgba(135, 206, 250, 0.2);
+    z-index: 1000;
+}
+
+.music-btn:hover {
+    background-color: #f0f8ff;
+    transform: translateY(-2px);
+}
+
+/* Yapping Text Styling di Halaman Yes */
+.message-box {
+    text-align: left;
+    background-color: #f9fcff;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    border: 1px dashed #b3d4f5; /* Aksen jahitan imut */
+}
+
+.message-box p {
+    margin-bottom: 12px;
+    font-size: 1rem;
+    color: #555;
+}
+
+.message-box p:last-child {
+    margin-bottom: 0;
+}
+
+.message-box .love {
+    font-weight: 700;
+    color: #4a90e2;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1.1rem;
+}
+
+/* Optimasi Khusus Mobile / HP */
+@media (max-width: 480px) {
+    .container {
+        padding: 30px 20px;
+        border-radius: 25px;
+    }
+    
+    h1 {
+        font-size: 1.35rem;
+    }
+    
+    p {
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+    }
+
+    .message-box {
+        padding: 15px;
+    }
+
+    .message-box p {
+        font-size: 0.95rem;
+    }
+    
+    .cute-gif {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .buttons button {
+        font-size: 1rem;
+        padding: 12px 10px;
+        max-width: none; /* Biarkan memenuhi sisa lebar layar */
+    }
+
+    .music-btn {
+        bottom: 15px;
+        right: 15px;
+        padding: 8px 15px;
+        font-size: 0.85rem;
+    }
+}

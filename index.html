@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Kamu...</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Tombol Play/Pause Music -->
+    <button id="music-toggle" class="music-btn" onclick="toggleMusic()">🎵 Putar Musik</button>
+
+    <div class="container">
+        <!-- Tempat untuk GIF atau Foto. Kamu bisa mengganti URL di bawah dengan foto/gif pilihanmu -->
+        <img src="/malu.gif" alt="Cute bear" class="cute-gif">
+        
+        <h1>Halo! Aku mau ngomong sesuatu nih...</h1>
+        <p>Kamu mau nggak jadi pacarku?</p>
+        
+        <div class="buttons">
+            <button id="yes-btn" onclick="handleYesClick()">Yes</button>
+            <button id="no-btn" onclick="handleNoClick()">No</button>
+        </div>
+    </div>
+
+    <!-- Tempat untuk musik BGM utama -->
+    <audio id="bgm" loop>
+        <!-- Ganti src="" menjadi src="nama-lagumu.mp3" -->
+        <source src="" type="audio/mpeg">
+    </audio>
+
+    <!-- Tempat untuk SFX -->
+    <audio id="sfx-yes">
+        <!-- SFX ketika pencet YES -->
+        <source src="" type="audio/mpeg">
+    </audio>
+    <audio id="sfx-no">
+        <!-- SFX ketika pencet NO -->
+        <source src="" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
