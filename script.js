@@ -16,24 +16,41 @@ function toggleMusic() {
             isMusicPlaying = true;
         }).catch(e => {
             console.log("Audio belum dimasukkan atau autoplay diblokir browser.");
-            alert("Masukkan file lagunya dulu ke dalam folder ya! (Isi atribut src di index.html)");
+            alert("Pastikan file lagunya tidak rusak ya!");
         });
+    }
+}
+
+// Fungsi pindah tampilan tanpa me-reload halaman (SPA)
+function showSection(sectionId) {
+    document.getElementById('section-home').style.display = 'none';
+    document.getElementById('section-no').style.display = 'none';
+    document.getElementById('section-yes').style.display = 'none';
+    
+    document.getElementById(sectionId).style.display = 'block';
+
+    // Jika masuk halaman yes, jalankan confetti
+    if (sectionId === 'section-yes') {
+        runConfetti();
     }
 }
 
 // Fungsi tombol Yes dan No dengan SFX
 function handleYesClick() {
     const sfxYes = document.getElementById('sfx-yes');
-    playSfxAndNavigate(sfxYes, 'yes.html');
+    playSfxAndNavigate(sfxYes, 'section-yes');
 }
 
 function handleNoClick() {
     const sfxNo = document.getElementById('sfx-no');
-    playSfxAndNavigate(sfxNo, 'no.html');
+    playSfxAndNavigate(sfxNo, 'section-no');
 }
 
-function playSfxAndNavigate(audioElement, url) {
-    // Cek apakah ada file audio yang dimasukkan ke sfx
+function goBackToHome() {
+    showSection('section-home');
+}
+
+function playSfxAndNavigate(audioElement, sectionId) {
     let hasSource = false;
     if (audioElement) {
         const source = audioElement.querySelector('source');
@@ -44,14 +61,25 @@ function playSfxAndNavigate(audioElement, url) {
 
     if (hasSource) {
         // Mainkan SFX
+        audioElement.currentTime = 0; // reset dari awal kalau dipencet berkali-kali
         audioElement.play().catch(e => console.log("Gagal play SFX"));
         
-        // Kasih delay sedikit (misal 800ms) agar suaranya terdengar dulu sebelum pindah halaman
+        // Delay 0.5 detik (500ms) sebelum ganti tampilan
         setTimeout(() => {
-            window.location.href = url;
-        }, 800); 
+            showSection(sectionId);
+        }, 500); 
     } else {
-        // Jika tidak ada SFX, langsung pindah halaman tanpa delay
-        window.location.href = url;
+        showSection(sectionId);
+    }
+}
+
+function runConfetti() {
+    if (typeof confetti === 'function') {
+        confetti({
+            particleCount: 150,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ['#ffffff', '#87cefa', '#4682b4']
+        });
     }
 }

@@ -6,13 +6,15 @@
     <title>Untuk Kamu...</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Confetti script untuk halaman yes -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
     <!-- Tombol Play/Pause Music -->
     <button id="music-toggle" class="music-btn" onclick="toggleMusic()">🎵 Putar Musik</button>
 
-    <div class="container">
-        <!-- Tempat untuk GIF atau Foto. Kamu bisa mengganti URL di bawah dengan foto/gif pilihanmu -->
+    <!-- SECTION HOME -->
+    <div class="container" id="section-home">
         <img src="/malu.gif" alt="Cute bear" class="cute-gif">
         
         <h1>Halo! Aku mau ngomong sesuatu nih...</h1>
@@ -24,9 +26,34 @@
         </div>
     </div>
 
-    <!-- Tempat untuk musik BGM utama -->
-    <audio id="bgm" loop>
-        <!-- Ganti src="" menjadi src="nama-lagumu.mp3" -->
+    <!-- SECTION NO -->
+    <div class="container" id="section-no" style="display: none;">
+        <img src="/sedih.gif" alt="Sad bear" class="cute-gif">
+        
+        <h1>Loh kok pencet No? 🥺</h1>
+        <p>Tombol No-nya lagi rusak, balik lagi ya terus pilih Yes!</p>
+        
+        <div class="buttons">
+            <button id="back-btn" onclick="goBackToHome()">Kembali & Pilih Yes</button>
+        </div>
+    </div>
+
+    <!-- SECTION YES -->
+    <div class="container" id="section-yes" style="display: none;">
+        <img src="kiss.gif" alt="Happy bear" class="cute-gif">
+        
+        <h1>Yeayyy! Aku Seneng Banget! 🥰</h1>
+        
+        <div class="message-box">
+            <p>Akhirnya kamu pencet Yes juga hehe! 🤍</p>
+            <p>Jujur aja, tiap kali ngobrol atau ngelihat kamu, duniaku rasanya jadi jauh lebih berwarna. Kamu tuh selalu punya cara buat bikin aku senyum sendiri.</p>
+            <p>Mulai sekarang, aku janji bakal terus berusaha bikin hari-harimu se-cute dan se-happy mungkin. Kalau kamu lagi sedih, tenang aja, ada aku di sini. Kita bikin banyak memori lucu bareng-bareng ya!</p>
+            <p class="love">I love youuu! 💙</p>
+        </div>
+    </div>
+
+    <!-- Tempat untuk musik BGM utama (tanpa loop) -->
+    <audio id="bgm">
         <source src="lantas.mp3" type="audio/mpeg">
     </audio>
 
@@ -37,7 +64,7 @@
     </audio>
     <audio id="sfx-no">
         <!-- SFX ketika pencet NO -->
-        <source src="wrong-answer-buzzer.mp3" type="audio/mpeg">
+        <source src="" type="audio/mpeg">
     </audio>
 
     <script src="script.js"></script>
